@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sponsor a Student</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Your inline styles here, if needed */
+    </style>
+</head>
+<body>
+    
+    <section id="header">
+        <p><a href="#"><img align="middle" src="images/logo.jpg" height="60" width="80" class="logo" alt=""></a>ShikSha Sahyog</p>
+        <ul id="navbar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="shop.html">How it works</a></li>
+            <li><a href="blog.html">Students</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <!-- <a href="#" id="close"><i class="far fa-times"></i></a> -->
+        </ul>
+    </section>
+<h2>Sponsor a Student</h2>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            {{ form.name(class="form-control") }}
+            {% for error in form.name.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email:</label>
+            {{ form.email(class="form-control") }}
+            {% for error in form.email.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="amount">Sponsorship Amount:</label>
+            {{ form.amount(class="form-control") }}
+            {% for error in form.amount.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <button type="submit" class="button">Sponsor</button>
+    </form>
+
+    <footer>
+        <p>&copy; 2023 Sponsor a Student</p>
+    </footer>
+</body>
+</html>
